@@ -135,7 +135,7 @@ int main(int argc, char **argv)
 			printf("\nYou won");
 			notOver = false;
 			
-			}else if(getWinner(1,2,3,'o',matrix) ||	
+		}else if(getWinner(1,2,3,'o',matrix) ||	
 			getWinner(4,5,6,'o',matrix) || 
 			getWinner(7,8,9,'o',matrix) || 
 			getWinner(1,5,9,'o',matrix) || 
@@ -146,11 +146,11 @@ int main(int argc, char **argv)
 				//computer won break and end
 				printf("\nyou lost");
 				notOver = false;
-			}else if(checkCompletion(matrix)){ 		//if condition to see if all spots are taken and if game is a draw;
-				printf("\nGame drawed");
-				//break;
-				notOver = false;
-				}
+		}else if(checkCompletion(matrix)){ 		//if condition to see if all spots are taken and if game is a draw;
+			printf("\nGame drawed");
+			//break;
+			notOver = false;
+			}
 	}
 		
 	

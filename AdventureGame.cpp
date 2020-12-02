@@ -3,11 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <ctype.h>
-/*Ok boys this is the code that will run the game
- * Try to see if you can make a function of the actual game and just set it 
- * in the for loops. Also feel free to add more options to the switch case
- * just remember to update the random int generator accordingly*/ 
- //Also Raheel can you see if there is a way to make the random in generator more random
+
  
  //Delete those comments prior to submission
  
@@ -15,6 +11,11 @@
   * This game gives the illusion of choice.
   * It makes the user feel they are making the decisions 
   * but really the computer is*/
+//---------------------------------------------------------------------------------------
+
+//Protoypes
+int difficulty(void);
+
 
 int main(){
 	
@@ -71,18 +72,7 @@ int main(){
 	//---------------------------------------------------------------------------------------
 		
 		//Difficulty selection
-		printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
-		scanf("%d",&d);
-	//---------------------------------------------------------------------------------------
-		
-		//Error check
-		
-		while(d<1 || d>4)
-		{
-			printf("\nNice try, you must choose a difficulty");
-			printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
-			scanf("%d",&d);
-		}
+		d=difficulty();
 	//---------------------------------------------------------------------------------------
 	
 	//Vars that must be in the loop as to reset them if the player chooses to go again
@@ -96,7 +86,7 @@ int main(){
 		switch(d){
 			case 1: //Easy
 				for(i=0;i<10;i++){
-				np=(rand()%7);
+				np=(rand()%13);
 				
 				//possible outcomes, some may repeat
 				switch(np){
@@ -129,6 +119,40 @@ int main(){
 						printf("\nOnce you arrive to the crossroad you notice it is a party of fallen adventures.");
 						printf("\nThe area around them is covered in burn marks. \nYou decide to press forward.");
 						break;
+					case 7:
+						printf("\nYou come across an old man traveling alone. \nHe tells you there is great danger here.");
+						printf("\nWithout further discussion he continues along and vanishes out of sight. \nYou are now alone at a crossroad.");
+						break;
+					case 8:
+						printf("\nAs you approach the crossroad you hear a loud swooping noise.");
+						printf("\nYou look up but only catch a glimpse of a large creature disappearing into the distant sky.");
+						printf("\nAs you are looking up you hear something hit the ground, you look down to notice a single piece of gold.");
+						gld=gld+1;
+						break;
+					case 9:
+						printf("\nAt the crossroad you notice a small mound of disturbed dirt.");
+						printf("\nYou investigate and dig through the dirt to find a small bottle.");
+						printf("\nIn the bottle is a note that reads :BEWARE There is a great danger in this area that burns everything!");
+						break;
+					case 10:
+						printf("\nAs you are walking along you notice an odd shape in the woods."); 
+						printf("\nYou investigate and find an large chest covered in moss with a rusty lock.");
+						printf("\nYou manage to bust the lock and find inside a sword and shield, both are in good condition.");
+						printf("\nYou take both and continue on until you come to a crossroad.");
+						tool=1;
+						break;
+					case 11: 
+						printf("\nYou stop to rest. As you sit a spell a small group limps by you.");
+						printf("\nAll but one of them appears to be injured. They all emplore you to turn back before moving on.");
+						printf("\nYou decide to continue anyway and you get up and resume walking.");
+						printf("\nAs you approach the crossroad you notice a fallen adventurer but you press forward to the next crossroad.");
+						break;
+					case 12: 
+					printf("\nAlong the path you notice a small cave and decide to investigate.");
+					printf("\nInside you discover a skeleton clutching a small bag.");
+					printf("\nYou take the small bag and find 10 gold inside.");
+					printf("\nYou leave the cave and continue to the next crossroad.");
+					break;
 					
 				}	
 	//---------------------------------------------------------------------------------------
@@ -152,7 +176,7 @@ int main(){
 	//---------------------------------------------------------------------------------------
 			case 2: //Medium
 				for(i=0;i<7;i++){
-					np=(rand()%7);
+					np=(rand()%13);
 				
 				//possible outcomes, some may repeat
 				switch(np){
@@ -185,6 +209,40 @@ int main(){
 						printf("\nOnce you arrive to the crossroad you notice it is a party of fallen adventures.");
 						printf("\nThe area around them is covered in burn marks. \nYou decide to press forward.");
 						break;
+					case 7:
+						printf("\nYou come across an old man traveling alone. \nHe tells you there is great danger here.");
+						printf("\nWithout further discussion he continues along and vanishes out of sight. \nYou are now alone at a crossroad.");
+						break;
+					case 8:
+						printf("\nAs you approach the crossroad you hear a loud swooping noise.");
+						printf("\nYou look up but only catch a glimpse of a large creature disappearing into the distant sky.");
+						printf("\nAs you are looking up you hear something hit the ground, you look down to notice a single piece of gold.");
+						gld=gld+1;
+						break;
+					case 9:
+						printf("\nAt the crossroad you notice a small mound of disturbed dirt.");
+						printf("\nYou investigate and dig through the dirt to find a small bottle.");
+						printf("\nIn the bottle is a note that reads :BEWARE There is a great danger in this area that burns everything!");
+						break;
+					case 10:
+						printf("\nAs you are walking along you notice an odd shape in the woods."); 
+						printf("\nYou investigate and find an large chest covered in moss with a rusty lock.");
+						printf("\nYou manage to bust the lock and find inside a sword and shield, both are in good condition.");
+						printf("\nYou take both and continue on until you come to a crossroad.");
+						tool=1;
+						break;
+					case 11: 
+						printf("\nYou stop to rest. As you sit a spell a small group limps by you.");
+						printf("\nAll but one of them appears to be injured. They all emplore you to turn back before moving on.");
+						printf("\nYou decide to continue anyway and you get up and resume walking.");
+						printf("\nAs you approach the crossroad you notice a fallen adventurer but you press forward to the next crossroad.");
+						break;
+					case 12: 
+					printf("\nAlong the path you notice a small cave and decide to investigate.");
+					printf("\nInside you discover a skeleton clutching a small bag.");
+					printf("\nYou take the small bag and find 10 gold inside.");
+					printf("\nYou leave the cave and continue to the next crossroad.");
+					break;
 					
 				}	
 	//---------------------------------------------------------------------------------------
@@ -209,7 +267,7 @@ int main(){
 			case 3:  //Hard
 				
 				for(i=0;i<4;i++){
-					np=(rand()%7);
+					np=(rand()%13);
 				
 				//possible outcomes, some may repeat
 				switch(np){
@@ -242,6 +300,40 @@ int main(){
 						printf("\nOnce you arrive to the crossroad you notice it is a party of fallen adventures.");
 						printf("\nThe area around them is covered in burn marks. \nYou decide to press forward.");
 						break;
+					case 7:
+						printf("\nYou come across an old man traveling alone. \nHe tells you there is great danger here.");
+						printf("\nWithout further discussion he continues along and vanishes out of sight. \nYou are now alone at a crossroad.");
+						break;
+					case 8:
+						printf("\nAs you approach the crossroad you hear a loud swooping noise.");
+						printf("\nYou look up but only catch a glimpse of a large creature disappearing into the distant sky.");
+						printf("\nAs you are looking up you hear something hit the ground, you look down to notice a single piece of gold.");
+						gld=gld+1;
+						break;
+					case 9:
+						printf("\nAt the crossroad you notice a small mound of disturbed dirt.");
+						printf("\nYou investigate and dig through the dirt to find a small bottle.");
+						printf("\nIn the bottle is a note that reads :BEWARE There is a great danger in this area that burns everything!");
+						break;
+					case 10:
+						printf("\nAs you are walking along you notice an odd shape in the woods."); 
+						printf("\nYou investigate and find an large chest covered in moss with a rusty lock.");
+						printf("\nYou manage to bust the lock and find inside a sword and shield, both are in good condition.");
+						printf("\nYou take both and continue on until you come to a crossroad.");
+						tool=1;
+						break;
+					case 11: 
+						printf("\nYou stop to rest. As you sit a spell a small group limps by you.");
+						printf("\nAll but one of them appears to be injured. They all emplore you to turn back before moving on.");
+						printf("\nYou decide to continue anyway and you get up and resume walking.");
+						printf("\nAs you approach the crossroad you notice a fallen adventurer but you press forward to the next crossroad.");
+						break;
+					case 12: 
+					printf("\nAlong the path you notice a small cave and decide to investigate.");
+					printf("\nInside you discover a skeleton clutching a small bag.");
+					printf("\nYou take the small bag and find 10 gold inside.");
+					printf("\nYou leave the cave and continue to the next crossroad.");
+					break;
 					
 				}	
 	//---------------------------------------------------------------------------------------
@@ -266,7 +358,7 @@ int main(){
 			case 4: //You Will Fail
 				for(i=0;i<2;i++){
 					
-					np=(rand()%7);
+					np=(rand()%13);
 				
 				//possible outcomes, some may repeat
 				switch(np){
@@ -299,6 +391,40 @@ int main(){
 						printf("\nOnce you arrive to the crossroad you notice it is a party of fallen adventures.");
 						printf("\nThe area around them is covered in burn marks. \nYou decide to press forward.");
 						break;
+					case 7:
+						printf("\nYou come across an old man traveling alone. \nHe tells you there is great danger here.");
+						printf("\nWithout further discussion he continues along and vanishes out of sight. \nYou are now alone at a crossroad.");
+						break;
+					case 8:
+						printf("\nAs you approach the crossroad you hear a loud swooping noise.");
+						printf("\nYou look up but only catch a glimpse of a large creature disappearing into the distant sky.");
+						printf("\nAs you are looking up you hear something hit the ground, you look down to notice a single piece of gold.");
+						gld=gld+1;
+						break;
+					case 9:
+						printf("\nAt the crossroad you notice a small mound of disturbed dirt.");
+						printf("\nYou investigate and dig through the dirt to find a small bottle.");
+						printf("\nIn the bottle is a note that reads :BEWARE There is a great danger in this area that burns everything!");
+						break;
+					case 10:
+						printf("\nAs you are walking along you notice an odd shape in the woods."); 
+						printf("\nYou investigate and find an large chest covered in moss with a rusty lock.");
+						printf("\nYou manage to bust the lock and find inside a sword and shield, both are in good condition.");
+						printf("\nYou take both and continue on until you come to a crossroad.");
+						tool=1;
+						break;
+					case 11: 
+						printf("\nYou stop to rest. As you sit a spell a small group limps by you.");
+						printf("\nAll but one of them appears to be injured. They all emplore you to turn back before moving on.");
+						printf("\nYou decide to continue anyway and you get up and resume walking.");
+						printf("\nAs you approach the crossroad you notice a fallen adventurer but you press forward to the next crossroad.");
+						break;
+					case 12: 
+					printf("\nAlong the path you notice a small cave and decide to investigate.");
+					printf("\nInside you discover a skeleton clutching a small bag.");
+					printf("\nYou take the small bag and find 10 gold inside.");
+					printf("\nYou leave the cave and continue to the next crossroad.");
+					break;
 					
 				}	
 	//---------------------------------------------------------------------------------------
@@ -372,3 +498,36 @@ int main(){
 	return 0;
 	
 }
+
+//---------------------------------------------------------------------------------------
+
+//Function Declarations
+
+int difficulty(void)
+{
+	int d;
+	
+	printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
+		scanf("%d",&d);
+//---------------------------------------------------------------------------------------
+		
+		//Error check
+		
+		while(d<1 || d>4)
+		{
+			printf("\nNice try, you must choose a difficulty");
+			printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
+			scanf("%d",&d);
+		}
+	
+	return(d);
+	
+}
+//---------------------------------------------------------------------------------------
+
+
+
+
+
+
+

@@ -3,11 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <ctype.h>
-/*Ok boys this is the code that will run the game
- * Try to see if you can make a function of the actual game and just set it 
- * in the for loops. Also feel free to add more options to the switch case
- * just remember to update the random int generator accordingly*/ 
- //Also Raheel can you see if there is a way to make the random in generator more random
+
  
  //Delete those comments prior to submission
  
@@ -15,6 +11,11 @@
   * This game gives the illusion of choice.
   * It makes the user feel they are making the decisions 
   * but really the computer is*/
+//---------------------------------------------------------------------------------------
+
+//Protoypes
+int difficulty(void);
+
 
 int main(){
 	
@@ -71,18 +72,7 @@ int main(){
 	//---------------------------------------------------------------------------------------
 		
 		//Difficulty selection
-		printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
-		scanf("%d",&d);
-	//---------------------------------------------------------------------------------------
-		
-		//Error check
-		
-		while(d<1 || d>4)
-		{
-			printf("\nNice try, you must choose a difficulty");
-			printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
-			scanf("%d",&d);
-		}
+		d=difficulty();
 	//---------------------------------------------------------------------------------------
 	
 	//Vars that must be in the loop as to reset them if the player chooses to go again
@@ -372,3 +362,36 @@ int main(){
 	return 0;
 	
 }
+
+//---------------------------------------------------------------------------------------
+
+//Function Declarations
+
+int difficulty(void)
+{
+	int d;
+	
+	printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
+		scanf("%d",&d);
+//---------------------------------------------------------------------------------------
+		
+		//Error check
+		
+		while(d<1 || d>4)
+		{
+			printf("\nNice try, you must choose a difficulty");
+			printf("\nWhich difficulty would you like to play on? (1)Easy (2)Medium (3)Hard (4)You Will Fail: ");
+			scanf("%d",&d);
+		}
+	
+	return(d);
+	
+}
+//---------------------------------------------------------------------------------------
+
+
+
+
+
+
+
